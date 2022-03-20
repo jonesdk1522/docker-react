@@ -9,3 +9,17 @@ before_install:
 
 script:
   - docker run -e CI=true breachlight/docker-react npm run test
+
+
+deploy:
+  provider: "elasticbeacnstalk"
+  region: "us-east-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-244564702958"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS+ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
