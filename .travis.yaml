@@ -3,7 +3,8 @@ language: generic
 sudo: required
 services:
  - docker
-beofre_install:
+
+before_install:
   - docker build -t breachlight/docker-react -f Dockerfile.dev .
 
 script:
